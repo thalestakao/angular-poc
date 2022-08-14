@@ -1,0 +1,28 @@
+<ng-container *ngIf="itens$ | async as listaPaginada else loading">
+  <table>
+    <thead>
+      <th>id</th>
+      <th>nome</th>
+      <th>sobrenome</th>
+      <th>email</th>
+      <th>genero</th>
+      <th>ativo</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaPaginada.itens">
+        <td>{{item.nome}}</td>
+        <td>{{item.sobrenome}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.genero}}</td>
+        <td>{{item.ativo}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <app-paginador [paginador]="listaPaginada.paginador" (mudarPagina)="aoMudarPagina($event)"></app-paginador>
+</ng-container>
+
+<ng-template #loading>
+  <div>
+    carregando..
+  </div>
+</ng-template>

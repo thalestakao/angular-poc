@@ -1,3 +1,4 @@
+import { AlunoModule } from './feature/alunos/alunos.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,7 +9,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AlunoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
