@@ -1,4 +1,4 @@
-<ng-container *ngIf="itens$ | async as listaPaginada else loading">
+<ng-container *ngIf="items$ | async as itens else loading">
   <table>
     <thead>
       <th>id</th>
@@ -9,7 +9,7 @@
       <th>ativo</th>
     </thead>
     <tbody>
-      <tr *ngFor="let item of listaPaginada.itens">
+      <tr *ngFor="let item of itens">
         <td>{{item.nome}}</td>
         <td>{{item.sobrenome}}</td>
         <td>{{item.email}}</td>
@@ -18,7 +18,7 @@
       </tr>
     </tbody>
   </table>
-  <app-paginador [paginador]="listaPaginada.paginador" (mudarPagina)="aoMudarPagina($event)"></app-paginador>
+  <app-paginador [paginador]="paginador$ | async" (mudarPagina)="aoMudarPagina($event)"></app-paginador>
 </ng-container>
 
 <ng-template #loading>
