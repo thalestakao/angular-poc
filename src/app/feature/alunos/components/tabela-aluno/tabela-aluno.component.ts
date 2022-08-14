@@ -15,9 +15,11 @@ import { TabelaAlunoService } from './tabela.service';
 })
 
 export class TabelaAlunoComponent extends ComponentBase<ListaPaginada<Aluno>> implements OnInit, OnDestroy {
-  items$ = this._facade.items$.pipe(tap(console.log));
+  items$ = this._facade.items$;
   
   paginador$ = this._facade.paginador$;
+  isLoading$ = this._facade.isLoading$;
+
 
   constructor(private alunoService: AlunosService, private _facade: TabelaAlunoService) {
     super();
